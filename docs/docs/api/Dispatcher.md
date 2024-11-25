@@ -1054,6 +1054,29 @@ const response = await client.request({
 })
 ```
 
+##### `contentEncoding`
+
+The `contentEncoding` interceptor decodes response bodies encoded with gzip, brotli or deflate.
+
+**Options**
+- `ignoreUnknown` - Ignore unknown/unsupported content encodings. If `false` an error will be thrown when an unknown encoding is encountered, otherwise the raw body will be returned. Default: `false`
+
+**Example - Basic Content Encoding Interceptor**
+
+```js
+const { Client, interceptors } = require("undici");
+const { contentEncoding } = interceptors;
+
+const client = new Agent().compose([
+  contentEncoding({ ...opts })
+])
+
+const response = await client.request({
+  origin: `http://localhost:3030`,
+  ...requestOpts
+})
+```
+
 ##### `Response Error Interceptor`
 
 **Introduction**

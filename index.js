@@ -41,7 +41,8 @@ module.exports.interceptors = {
   retry: require('./lib/interceptor/retry'),
   dump: require('./lib/interceptor/dump'),
   dns: require('./lib/interceptor/dns'),
-  cache: require('./lib/interceptor/cache')
+  cache: require('./lib/interceptor/cache'),
+  contentEncoding: require('./lib/interceptor/content-encoding')
 }
 
 module.exports.cacheStores = {
